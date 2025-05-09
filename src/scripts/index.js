@@ -5,6 +5,7 @@ async function fetchData() {
         const response = await fetch(baseUrl)
         if (!response.ok) throw new Error(response.statusText);
         const { results, info } = await response.json();
+        document.querySelector('.loader').style.display = 'none'
         const data = []
         results.forEach(element => {
             data[data.length] = { image: element.image, name: element.name }
